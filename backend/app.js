@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
@@ -18,6 +19,17 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 	useUnifiedTopology: true,
 	runValidators: true
 });
+
+const allowedCors = [
+	'https://logvenkin.students.nomoredomains.icu',
+	'https://api.logvenkin.students.nomoredomains.club'
+];
+
+app.use(
+	cors({
+		origin: allowedCors
+	})
+);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

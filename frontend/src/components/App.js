@@ -220,17 +220,20 @@ function App() {
 	}
 
 	function handleRegister(email, password) {
-		auth.register(email, password).then((res) => {
-			if (res.data) {
-				setRegStatus(true);
-				history.push('/');
-				setInfoToolTipData({ icon: true, title: 'Вы успешно зарегистрировались!' });
-				handleInfoToolTip();
-			} else {
-				setRegStatus(false);
-				handleInfoToolTip();
-			}
-		});
+		auth
+			.register(email, password)
+			.then((res) => {
+				if (res.data) {
+					setRegStatus(true);
+					history.push('/');
+					setInfoToolTipData({ icon: true, title: 'Вы успешно зарегистрировались!' });
+					handleInfoToolTip();
+				} else {
+					setRegStatus(false);
+					handleInfoToolTip();
+				}
+			})
+			.catch((err) => console.error(err));
 	}
 
 	function handleLogout() {
