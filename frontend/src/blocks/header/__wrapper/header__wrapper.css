@@ -1,0 +1,28 @@
+.header__wrapper {
+	border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+	border-top: 1px solid rgba(84, 84, 84, 0.7);
+	width: calc(100% - 199px*2);
+	margin: 0 auto;
+	padding: 45px 0 40.6px;
+	display: flex;
+	justify-content: space-between;
+}
+
+@media (max-width: 1023px) {
+	.header__wrapper {
+		width: calc(100% - 150px*2);
+	}
+}
+
+@media (max-width: 767px) {
+	.header__wrapper {
+		width: calc(100% - 80px*2);
+		padding: 28px 0 31.6px;
+	}
+}
+
+@media (max-width: 425px) {
+	.header__wrapper {
+		width: 100%;
+	}
+}

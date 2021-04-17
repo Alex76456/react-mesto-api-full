@@ -1,0 +1,5 @@
+@media (max-width: 767px) {
+	.header__bar-for-big {
+		display: none;
+	}
+}

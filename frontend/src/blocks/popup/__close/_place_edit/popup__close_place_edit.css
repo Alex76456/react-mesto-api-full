@@ -1,0 +1,8 @@
+@media (max-width: 767px) {
+  .popup__close_place_edit {
+    right: 0;
+    top: -46px;
+    width: 26px;
+    height: 26px;
+  }
+}
