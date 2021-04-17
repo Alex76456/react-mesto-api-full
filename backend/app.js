@@ -12,14 +12,9 @@ const app = express();
 
 const NotFoundError = require('./middlewares/errors/NotFoundError');
 
-mongoose.connect('mongodb://localhost:27017/mestodb', {
-	useNewUrlParser: true,
-	useCreateIndex: true,
-	useFindAndModify: false,
-	useUnifiedTopology: true,
-	runValidators: true
-});
+app.use(cors());
 
+/*
 const allowedCors = [
 	'https://logvenkin.students.nomoredomains.icu',
 	'https://api.logvenkin.students.nomoredomains.club'
@@ -30,7 +25,7 @@ app.use(
 		origin: allowedCors
 	})
 );
-
+*/
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -55,6 +50,14 @@ app.use((err, req, res, next) => {
 		message: statusCode === 500 ? 'На сервере произошла ошибка' : message
 	});
 	next();
+});
+
+mongoose.connect('mongodb://localhost:27017/mestodb', {
+	useNewUrlParser: true,
+	useCreateIndex: true,
+	useFindAndModify: false,
+	useUnifiedTopology: true,
+	runValidators: true
 });
 
 app.listen(PORT, () => {

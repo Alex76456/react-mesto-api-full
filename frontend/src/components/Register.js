@@ -9,8 +9,12 @@ function Register({ onRegister, regStatus }) {
 	//const [ buttonSubmitText, setButtonSubmitText ] = React.useState('Сохранить');
 
 	// Переменные для валидации --------------------------------------------------------------------------------------------------------------
-	const [ inputEmailErrorText, setInputEmailErrorText ] = React.useState('Вы пропустили это поле.');
-	const [ inputPasswordErrorText, setInputPasswordErrorText ] = React.useState('Вы пропустили это поле.');
+	const [ inputEmailErrorText, setInputEmailErrorText ] = React.useState(
+		'Вы пропустили это поле.'
+	);
+	const [ inputPasswordErrorText, setInputPasswordErrorText ] = React.useState(
+		'Вы пропустили это поле.'
+	);
 
 	const [ inputEmailValid, setInputEmailValid ] = React.useState(true);
 	const [ inputPasswordValid, setInputPasswordValid ] = React.useState(true);
@@ -18,10 +22,16 @@ function Register({ onRegister, regStatus }) {
 
 	const submitButtonClassName = `sign__submit ${formValid ? '' : 'sign__submit_disabled'}`;
 
-	const inputEmailErrorClassName = `sign__input-error ${inputEmailValid ? '' : 'sign__input-error_visible'}`;
-	const inputEmailClassName = `sign__input sign__input_type_name ${inputEmailValid ? '' : 'sign__input_type_error'}`;
+	const inputEmailErrorClassName = `sign__input-error ${inputEmailValid
+		? ''
+		: 'sign__input-error_visible'}`;
+	const inputEmailClassName = `sign__input sign__input_type_name ${inputEmailValid
+		? ''
+		: 'sign__input_type_error'}`;
 
-	const inputPasswordErrorClassName = `sign__input-error ${inputPasswordValid ? '' : 'sign__input-error_visible'}`;
+	const inputPasswordErrorClassName = `sign__input-error ${inputPasswordValid
+		? ''
+		: 'sign__input-error_visible'}`;
 	const inputPasswordClassName = `sign__input sign__input_type_job ${inputPasswordValid
 		? ''
 		: 'sign__input_type_error'}`;
@@ -59,7 +69,6 @@ function Register({ onRegister, regStatus }) {
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		console.log(email, password);
 
 		onRegister(email, password);
 
@@ -103,9 +112,15 @@ function Register({ onRegister, regStatus }) {
 								value={password}
 								onChange={handlePasswordChange}
 							/>
-							<span className={inputPasswordErrorClassName}>{inputPasswordErrorText}</span>
+							<span className={inputPasswordErrorClassName}>
+								{inputPasswordErrorText}
+							</span>
 						</label>
-						<button className={submitButtonClassName} type="submit" disabled={formValid ? false : true}>
+						<button
+							className={submitButtonClassName}
+							type="submit"
+							disabled={formValid ? false : true}
+						>
 							Зарегистрироваться
 						</button>
 						<Link to="/sign-in" className="sign__link">
