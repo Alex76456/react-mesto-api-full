@@ -78,9 +78,10 @@ class Api {
 }
 
 const api = new Api({
-	baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-19',
+	baseUrl: 'https://api.logvenkin.students.nomoredomains.club',
 	headers: {
-		authorization: 'd4ad1f5c-6d3d-4923-9666-f0281ec3ce2e',
+		authorization: `Bearer ${localStorage.getItem('token')}`,
+		//authorization: 'd4ad1f5c-6d3d-4923-9666-f0281ec3ce2e',
 		'Content-Type': 'application/json'
 	}
 });
