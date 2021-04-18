@@ -15,7 +15,7 @@ class Api {
 		return fetch(`${this._url}/cards`, {
 			headers: {
 				authorization: `Bearer ${localStorage.getItem('token')}`,
-				'Content-Type': this._contentType
+				'Content-type': 'application/json'
 			}
 		}).then(this._getResponse);
 	}
@@ -25,7 +25,7 @@ class Api {
 			method: 'POST',
 			headers: {
 				authorization: `Bearer ${localStorage.getItem('token')}`,
-				'Content-Type': this._contentType
+				'Content-type': 'application/json'
 			},
 			body: JSON.stringify({
 				name: place,
@@ -39,7 +39,7 @@ class Api {
 			method: 'DELETE',
 			headers: {
 				authorization: `Bearer ${localStorage.getItem('token')}`,
-				'Content-Type': this._contentType
+				'Content-type': 'application/json'
 			}
 		}).then(this._getResponse);
 	}
@@ -49,7 +49,7 @@ class Api {
 			method: 'PUT',
 			headers: {
 				authorization: `Bearer ${localStorage.getItem('token')}`,
-				'Content-Type': this._contentType
+				'Content-type': 'application/json'
 			}
 		}).then(this._getResponse);
 	}
@@ -59,7 +59,7 @@ class Api {
 			method: 'DELETE',
 			headers: {
 				authorization: `Bearer ${localStorage.getItem('token')}`,
-				'Content-Type': this._contentType
+				'Content-type': 'application/json'
 			}
 		}).then(this._getResponse);
 	}
@@ -68,7 +68,7 @@ class Api {
 		return fetch(`${this._url}/users/me`, {
 			headers: {
 				authorization: `Bearer ${localStorage.getItem('token')}`,
-				'Content-Type': this._contentType
+				'Content-type': 'application/json'
 			}
 		}).then(this._getResponse);
 	}
@@ -78,7 +78,7 @@ class Api {
 			method: 'PATCH',
 			headers: {
 				authorization: `Bearer ${localStorage.getItem('token')}`,
-				'Content-Type': this._contentType
+				'Content-type': 'application/json'
 			},
 			body: JSON.stringify({
 				name: name,
@@ -92,7 +92,7 @@ class Api {
 			method: 'PATCH',
 			headers: {
 				authorization: `Bearer ${localStorage.getItem('token')}`,
-				'Content-Type': this._contentType
+				'Content-type': 'application/json'
 			},
 			body: JSON.stringify({
 				avatar: avatar
@@ -104,9 +104,9 @@ class Api {
 const api = new Api({
 	baseUrl: 'https://api.logvenkin.students.nomoredomains.club',
 	headers: {
+		'Content-type': 'application/json'
 		//authorization: `Bearer ${localStorage.getItem('token')}`,
 		//authorization: 'd4ad1f5c-6d3d-4923-9666-f0281ec3ce2e',
-		'Content-Type': 'application/json'
 	}
 });
 
