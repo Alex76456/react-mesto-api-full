@@ -1,7 +1,7 @@
 class Api {
 	constructor(config) {
 		this._url = config.baseUrl;
-		this._headers = config.headers;
+		this._contentType = config.headers['Content-type'];
 	}
 
 	_getResponse(res) {
@@ -13,14 +13,20 @@ class Api {
 
 	getInitialCards() {
 		return fetch(`${this._url}/cards`, {
-			headers: this._headers
+			headers: {
+				authorization: `Bearer ${localStorage.getItem('token')}`,
+				'Content-Type': this._contentType
+			}
 		}).then(this._getResponse);
 	}
 
 	setNewCard({ place, link }) {
 		return fetch(`${this._url}/cards`, {
 			method: 'POST',
-			headers: this._headers,
+			headers: {
+				authorization: `Bearer ${localStorage.getItem('token')}`,
+				'Content-Type': this._contentType
+			},
 			body: JSON.stringify({
 				name: place,
 				link: link
@@ -31,34 +37,49 @@ class Api {
 	deleteCard(cardId) {
 		return fetch(`${this._url}/cards/${cardId}`, {
 			method: 'DELETE',
-			headers: this._headers
+			headers: {
+				authorization: `Bearer ${localStorage.getItem('token')}`,
+				'Content-Type': this._contentType
+			}
 		}).then(this._getResponse);
 	}
 
 	setLikeCard(cardId) {
 		return fetch(`${this._url}/cards/likes/${cardId}`, {
 			method: 'PUT',
-			headers: this._headers
+			headers: {
+				authorization: `Bearer ${localStorage.getItem('token')}`,
+				'Content-Type': this._contentType
+			}
 		}).then(this._getResponse);
 	}
 
 	deleteLikeCard(cardId) {
 		return fetch(`${this._url}/cards/likes/${cardId}`, {
 			method: 'DELETE',
-			headers: this._headers
+			headers: {
+				authorization: `Bearer ${localStorage.getItem('token')}`,
+				'Content-Type': this._contentType
+			}
 		}).then(this._getResponse);
 	}
 
 	getUser() {
 		return fetch(`${this._url}/users/me`, {
-			headers: this._headers
+			headers: {
+				authorization: `Bearer ${localStorage.getItem('token')}`,
+				'Content-Type': this._contentType
+			}
 		}).then(this._getResponse);
 	}
 
 	setUser({ name, about }) {
 		return fetch(`${this._url}/users/me`, {
 			method: 'PATCH',
-			headers: this._headers,
+			headers: {
+				authorization: `Bearer ${localStorage.getItem('token')}`,
+				'Content-Type': this._contentType
+			},
 			body: JSON.stringify({
 				name: name,
 				about: about
@@ -69,7 +90,10 @@ class Api {
 	setUserAvatar({ avatar }) {
 		return fetch(`${this._url}/users/me/avatar`, {
 			method: 'PATCH',
-			headers: this._headers,
+			headers: {
+				authorization: `Bearer ${localStorage.getItem('token')}`,
+				'Content-Type': this._contentType
+			},
 			body: JSON.stringify({
 				avatar: avatar
 			})
@@ -80,7 +104,7 @@ class Api {
 const api = new Api({
 	baseUrl: 'https://api.logvenkin.students.nomoredomains.club',
 	headers: {
-		authorization: `Bearer ${localStorage.getItem('token')}`,
+		//authorization: `Bearer ${localStorage.getItem('token')}`,
 		//authorization: 'd4ad1f5c-6d3d-4923-9666-f0281ec3ce2e',
 		'Content-Type': 'application/json'
 	}
