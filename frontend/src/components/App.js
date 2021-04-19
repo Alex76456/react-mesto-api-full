@@ -181,8 +181,6 @@ function App() {
 				})
 				.catch((err) => console.error(err));
 		}
-
-		history.push('/');
 	}
 	//проверяем токен при загрузке Апп
 	useEffect(() => {

@@ -45,17 +45,19 @@ function Main({
 
 			<section className="elements">
 				<ul className="elements__list">
-					{cards.reverse().map((initionalCard) => {
-						return (
-							<Card
-								card={initionalCard}
-								onCardClick={onCardClick}
-								key={initionalCard._id}
-								onCardLike={handleCardLike}
-								onCardDelete={handleCardDelete}
-							/>
-						);
-					})}
+					{cards
+						.map((initionalCard) => {
+							return (
+								<Card
+									card={initionalCard}
+									onCardClick={onCardClick}
+									key={initionalCard._id}
+									onCardLike={handleCardLike}
+									onCardDelete={handleCardDelete}
+								/>
+							);
+						})
+						.reverse()}
 				</ul>
 			</section>
 		</main>
