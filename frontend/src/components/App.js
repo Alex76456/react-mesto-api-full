@@ -223,7 +223,7 @@ function App() {
 		auth
 			.register(email, password)
 			.then((res) => {
-				if (res.data) {
+				if (res) {
 					setRegStatus(true);
 					setInfoToolTipData({ icon: true, title: 'Вы успешно зарегистрировались!' });
 					handleInfoToolTip();
