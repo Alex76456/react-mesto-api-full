@@ -141,7 +141,7 @@ function App() {
 		api
 			.setNewCard(inputsValues)
 			.then((newCard) => {
-				setCards([ newCard, ...cards ]);
+				setCards([ ...cards, newCard ]);
 			})
 			.catch((err) => {
 				console.error(err);
