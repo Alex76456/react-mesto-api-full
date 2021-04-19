@@ -175,8 +175,9 @@ function App() {
 				.checkToken(token)
 				.then((res) => {
 					if (res) {
-						setUserData({ email: res.data.email });
+						//setUserData({ email: res.data.email });
 						setLoggedIn(true);
+						console.log('залогинился?');
 					}
 				})
 				.catch((err) => console.error(err));
@@ -194,6 +195,7 @@ function App() {
 				Promise.all([ api.getUser(), api.getInitialCards() ])
 					.then(([ userData, cardsData ]) => {
 						setCurrentUser(userData);
+						setUserData({ email: userData.email });
 						setCards(cardsData);
 					})
 					.catch((err) => {
