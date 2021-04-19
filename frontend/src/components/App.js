@@ -177,11 +177,12 @@ function App() {
 					if (res) {
 						setUserData({ email: res.data.email });
 						setLoggedIn(true);
-						history.push('/');
 					}
 				})
 				.catch((err) => console.error(err));
 		}
+
+		history.push('/');
 	}
 	//проверяем токен при загрузке Апп
 	useEffect(() => {
