@@ -13,25 +13,24 @@ const app = express();
 const NotFoundError = require('./middlewares/errors/NotFoundError');
 
 mongoose.connect('mongodb://localhost:27017/mestodb', {
-	useNewUrlParser: true,
-	useCreateIndex: true,
-	useFindAndModify: false,
-	useUnifiedTopology: true,
-	runValidators: true
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+  runValidators: true,
 });
 
 app.use(cors());
-
 /*
 const allowedCors = [
-	'https://logvenkin.students.nomoredomains.icu',
-	'https://api.logvenkin.students.nomoredomains.club'
+  'https://logvenkin.students.nomoredomains.icu',
+  'https://api.logvenkin.students.nomoredomains.club',
 ];
 
 app.use(
-	cors({
-		origin: allowedCors
-	})
+  cors({
+    origin: allowedCors,
+  }),
 );
 */
 app.use(bodyParser.json());
@@ -42,7 +41,7 @@ app.use(requestLogger);
 app.use(router);
 
 app.use('*', () => {
-	throw new NotFoundError('Запрашиваемый ресурс не найден');
+  throw new NotFoundError('Запрашиваемый ресурс не найден');
 });
 
 app.use(errorLogger);
@@ -50,16 +49,16 @@ app.use(errorLogger);
 app.use(errors());
 
 app.use((err, req, res, next) => {
-	// если у ошибки нет статуса, выставляем 500
-	const { statusCode = 500, message } = err;
+  // если у ошибки нет статуса, выставляем 500
+  const { statusCode = 500, message } = err;
 
-	res.status(statusCode).send({
-		// проверяем статус и выставляем сообщение в зависимости от него
-		message: statusCode === 500 ? 'На сервере произошла ошибка' : message
-	});
-	next();
+  res.status(statusCode).send({
+    // проверяем статус и выставляем сообщение в зависимости от него
+    message: statusCode === 500 ? 'На сервере произошла ошибка' : message,
+  });
+  next();
 });
 
 app.listen(PORT, () => {
-	console.log(`App is running on port ${PORT}`);
+  console.log(`App is running on port ${PORT}`);
 });
