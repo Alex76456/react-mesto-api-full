@@ -3,7 +3,15 @@ import { useContext } from 'react';
 import Card from './Card';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, cards, onCardLike, onCardDelete }) {
+function Main({
+	onEditProfile,
+	onAddPlace,
+	onEditAvatar,
+	onCardClick,
+	cards,
+	onCardLike,
+	onCardDelete
+}) {
 	const user = useContext(CurrentUserContext);
 
 	function handleCardLike(card, isLiked) {
@@ -24,7 +32,11 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, cards, onC
 				<div className="profile__info">
 					<h1 className="profile__title">{user.name}</h1>
 
-					<button className="profile__edit-button" type="button" onClick={onEditProfile} />
+					<button
+						className="profile__edit-button"
+						type="button"
+						onClick={onEditProfile}
+					/>
 
 					<p className="profile__subtitle">{user.about}</p>
 				</div>
@@ -33,7 +45,7 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, cards, onC
 
 			<section className="elements">
 				<ul className="elements__list">
-					{cards.map((initionalCard) => {
+					{cards.reverse().map((initionalCard) => {
 						return (
 							<Card
 								card={initionalCard}
