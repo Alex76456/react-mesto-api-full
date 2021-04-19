@@ -9,7 +9,7 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
 		? 'elements__delete-button_visible'
 		: 'elements__delete-button_hidden'}`;
 
-	const isLiked = card.likes.some((i) => i._id === user._id);
+	const isLiked = card.likes.some((id) => id === user._id);
 	const cardLikeButtonClassName = `elements__caption-like ${isLiked
 		? 'elements__caption-like_color_black'
 		: 'elements__caption-like_color_white'}`;
