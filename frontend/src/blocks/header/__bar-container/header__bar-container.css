@@ -1,0 +1,8 @@
+@media (max-width: 767px) {
+	.header__bar-container {
+		padding: 40px 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}

@@ -1,0 +1,18 @@
+.sign__link {
+	text-decoration: none;
+	color: #fff;
+	font-size: 14px;
+	line-height: 17px;
+	text-align: center;
+	margin-top: 15px;
+}
+
+.sign__link:hover {
+	opacity: 0.6;
+}
+
+@media (max-width: 767px) {
+	.sign__link {
+		margin-top: 20px;
+	}
+}
