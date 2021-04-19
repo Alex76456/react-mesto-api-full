@@ -175,9 +175,7 @@ function App() {
 				.checkToken(token)
 				.then((res) => {
 					if (res) {
-						//setUserData({ email: res.data.email });
 						setLoggedIn(true);
-						console.log('залогинился?');
 					}
 				})
 				.catch((err) => console.error(err));
@@ -227,9 +225,9 @@ function App() {
 			.then((res) => {
 				if (res.data) {
 					setRegStatus(true);
-					history.push('/');
 					setInfoToolTipData({ icon: true, title: 'Вы успешно зарегистрировались!' });
 					handleInfoToolTip();
+					history.push('/sign-in');
 				} else {
 					setRegStatus(false);
 					handleInfoToolTip();
