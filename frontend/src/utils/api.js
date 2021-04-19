@@ -45,7 +45,7 @@ class Api {
 	}
 
 	setLikeCard(cardId) {
-		return fetch(`${this._url}/cards/likes/${cardId}`, {
+		return fetch(`${this._url}/cards/${cardId}/likes/`, {
 			method: 'PUT',
 			headers: {
 				authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -55,7 +55,7 @@ class Api {
 	}
 
 	deleteLikeCard(cardId) {
-		return fetch(`${this._url}/cards/likes/${cardId}`, {
+		return fetch(`${this._url}/cards/${cardId}/likes/`, {
 			method: 'DELETE',
 			headers: {
 				authorization: `Bearer ${localStorage.getItem('token')}`,
